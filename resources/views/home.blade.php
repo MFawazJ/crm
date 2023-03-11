@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@if (Auth::user() && Auth::user()->is_admin)
-    <p>You are logged in as an administrator.</p>
-@endif
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
