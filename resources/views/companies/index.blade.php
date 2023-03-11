@@ -30,12 +30,16 @@
                         <td><img src="{{ $company->logo }}" width="50" height="50"></td>
                         <td>{{ $company->website }}</td>
                         <td>
-                            <a class="btn btn-app bg-secondary" href="{{ route('companies.edit', $company->id) }}">
-                                <i class="fas fa-edit"></i> Edit
-                            </a>
-                            <a class="btn btn-app bg-danger">
-                                <i class="fas fa-trash"></i> Delete
-                            </a>
+                            <form action="{{ route('companies.destroy',$company->id) }}" method="Post">
+                                @csrf
+                                @method('DELETE')
+                                <a class="btn btn-app bg-secondary" href="{{ route('companies.edit', $company->id) }}">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <button type="submit" class="btn btn-app bg-danger" href="{{ route('companies.destroy', $company->id) }}">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
